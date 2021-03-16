@@ -13,6 +13,6 @@ steps:
 
 - name: deploy
   commands:
-    - cd /var/docker/allwize
+    - cd /var/docker/allwize-stack
     - docker-compose stop wizether wizether-worker
     - docker-compose up -d wizether wizether-worker
