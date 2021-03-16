@@ -18,8 +18,7 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 db = SQLAlchemy()
 login_manager = LoginManager()
-admin = Admin(name='WizeTher',
-              index_view=CustomAdminIndexView())
+admin = Admin(name='WizeTher', index_view=CustomAdminIndexView())
 
 # Application factory init
 def create_app():
