@@ -1,5 +1,7 @@
 .vscode/
 
+migrations/
+
 docker-compose.yml
 
 start.sh
