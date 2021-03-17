@@ -79,9 +79,9 @@
                             </button>
 
                             <a class="navbar-brand" href="#brand">
-                                <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1_white.png') }}" style="object-fit: cover; width: 100%; height: 60px; margin-left: 10%; margin-top: -7%;"
+                                <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1_white.png') }}" style="object-fit: cover; height: 60px; margin-left: 10%; margin-top: -7%;"
                                     class="logo logo-display" alt="">
-                                <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1.png') }}" style="object-fit: cover; width: 100%; height: 60px; margin-left: 10%; margin-top: -7%;" 
+                                <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1.png') }}" style="object-fit: cover; height: 60px; margin-left: 10%; margin-top: -7%;" 
                                     class="logo logo-scrolled" alt="">
                             </a>
                         </div>
@@ -211,10 +211,10 @@
                             <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="margin-top: 10%;">
                                 <div class="head_title text-center">
                                     <h2>¿En qué consiste una estación WizeTher?</h2>
-                                    <h5>Es muy sencillo, cuenta con tres sensores (que son los que recogen datos de ambiente),
-                                        dos actuadores (que son los que nos ayudarán a visualizar los datos en el propio dispositivo, en el momento en el que se recogen),
-                                        un dispositivo controlador (recoge las instrucciones que le digamos, como estar escuchando los sensores y enviar datos a través de la antena),
-                                        una antena (sin ella, no podríamos enviar los datos al aire) y una batería tipo pila (para permitir que el dispositivo sea autónomo).</h5>
+                                    <h5>Es muy sencillo, cuenta con <b>tres sensores</b> (que son los que recogen datos del ambiente),
+                                        <b>dos actuadores</b> (que son los que nos ayudarán a visualizar los datos en el propio dispositivo, en el momento en el que se recogen),
+                                        un <b>dispositivo controlador</b> (recoge las instrucciones que le digamos, como estar escuchando los sensores y enviar datos a través de la antena),
+                                        una <b>antena</b> (sin ella, no podríamos enviar los datos al aire) y una <b>batería</b> tipo pila (para permitir que el dispositivo sea autónomo).</h5>
                                 </div>
                             </div>
 
@@ -275,8 +275,20 @@
                             <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="margin-top: 5%;">
                                 <div class="head_title text-center">
                                     <h2>Empezar a usar una estación WizeTher</h2>
-                                    <h5>Lo primero que necesitamos es un sensor. Nuestro sensor estará compuesto de una placa controladora, una batería, la antena y
-                                         los diferentes sensores intercambiables que queramos utilizar para muestrear nuestro entorno.</h5>
+                                    <p>
+                                        <h5>Lo primero que necesitaremos hacer será adquirir una estación, y una pila si deseamos lanzarla hacia la autonomía desde el principio. </h5>
+                                    </p>
+
+                                    <p>
+                                        <h5>Después, si se quieren visualizar los datos que toma la estación, se recomienda crear cuenta en WizeTher.</h5>
+                                    </p>
+
+                                    <p>
+                                        <h5>Por último, si quieres jugar con la estación, en el siguiente link te dejamos un repositorio donde consultar
+                                            cómo se ha creado todo. Recuerda, puedes usar otros sensores, personalizar la estación según tus necesidades,
+                                            de ahí la importancia de ofrecer todo bajo licencia Open Source, para que quien lo desee parta de este diseño y
+                                            lo evolucione y mejore a su gusto: [PONER LINK REPO GITHUB O LO QUE DIGAS]</h5>
+                                    </p>
                                 </div>
                             </div>
 
@@ -358,19 +370,21 @@
                                 <div class="download_item roomy-100">
                                     <h2 class="text-white">FAQ</h2>
                                     <h4 class="text-white">¿Qué es la tecnología Wize?</h4>
-                                    <h5 class="text-white m-top-20">Just download the app from the store.
-                                        Simple, nice and user-friendly application of theweather.
-                                        Only relevant and useful information.</h5>
+                                    <h5 class="text-white m-top-20">Se trata de un protocolo radio que trabaja a una frecuencia de 169 MHz (muy baja frecuencia,
+                                        ¡tu WiFi va a 2.4 o 5 GHz!). Lleva siendo usado por compañías de agua y gas desde hace mas de 10 años para realizar mediciones inteligentes.
+                                        Uno de sus puntos fuertes es la capacidad de penetración en interiores de las ondas de radio, lo que hace a este protocolo perfecto para aplicaciones
+                                        IoT en zonas urbanas. Más info aquí: https://www.allwize.io/wize-protocol</h5>
 
                                     <h4 class="text-white" style="padding-top: 5%;">¿Cómo obtenemos datos?</h4>
-                                    <h5 class="text-white m-top-20">Just download the app from the store.
-                                        Simple, nice and user-friendly application of theweather.
-                                        Only relevant and useful information.</h5>
+                                    <h5 class="text-white m-top-20">En esta tarea tienen mucho que decir los sensores, que son los que la desempeñan. Son pequeños dispositivos electrónicos
+                                        diseñados para ser sensibles a determinadas condiciones, y así poder medir variaciones de una determinada magnitud, como la temperatura.
+                                        Segun el objetivo que se busque conseguir, la selección de sensores variara en ese sentido;
+                                        así pues, los sensores seleccionados medirán aquello para lo que hayan sido diseñados,
+                                        y nosotros a través de una placa controladora leeremos las medidas y programaremos que envíen esa información a internet, para que nuestra plataforma ayude a analizarlos.</h5>
 
                                     <h4 class="text-white" style="padding-top: 5%;">¿Todos los datos son públicos?</h4>
-                                    <h5 class="text-white m-top-20">Just download the app from the store.
-                                        Simple, nice and user-friendly application of theweather.
-                                        Only relevant and useful information.</h5>
+                                    <h5 class="text-white m-top-20">Los datos que sean de carácter sensible jamás serán públicos. De todas maneras, este proyecto no tiene como objetivo la recopilación de información
+                                        de personas o empresas, sino datos medioambientales, para servir de apoyo en decisiones que tengan como meta la mejora de la calidad ambiental de la ciudad.</h5>
 
                                     <div class="download_app m-top-30">
                                         <!-- 
@@ -424,7 +438,7 @@
                                             <i class="fa fa-bars"></i>
                                         </button>
                                         <a class="navbar-brand" href="#brand"><img src="{{ url_for('static', filename='landing/img/logo_wizether_v1.png') }}"
-                                            style="object-fit: cover; width: 100%; height: 60px; margin-left: 10%; margin-top: -7%;" class="logo logo-scrolled"
+                                            style="object-fit: cover; height: 60px; margin-left: 10%; margin-top: -7%;" class="logo logo-scrolled"
                                             alt="">
                                         </a>
                                     </div>
