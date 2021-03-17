@@ -92,7 +92,7 @@
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-center">
                             <li><a href="#home">Inicio</a></li>                    
-                            <li><a href="#features">En que consiste</a></li>
+                            <li><a href="#features">En qué consiste</a></li>
                             <li><a href="#reviews">OpenAPI</a></li>
                             <li><a href="#FAQ">FAQ</a></li>
                         </ul>
@@ -112,7 +112,7 @@
                                 </div>
 
                                 <div class="home_btns m-top-40">
-                                    <a href="" class="btn btn-danger m-top-20">Solicitar sensor</a>
+                                    <a href="" class="btn btn-danger m-top-20">Solicitar una estación meteorológica</a>
                                     <a href="#features" class="btn btn-primary m-top-20">En que consiste</a>
                                 </div>
                             </div>
@@ -147,15 +147,28 @@
                             <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                                 <div class="head_title text-center">
                                     <h2>¿Qué es <i>WizeTher</i>?</h2>
-                                    <h5>Su nombre surge como resultado de combinar <i>Wize</i> y Weather. Se trata de un proyecto que usa <b>tecnología radio Wize</b>,
-                                        una nueva opción de LPWAN (como lo son LoRa o Sigfox) para <b>soluciones IoT</b>; su objetivo, como su propio nombre indica,
-                                        es el de servir como <b><i>estación meteorológica</i></b> que, lejos de ser sólo eso, monitoriza otros parámetros como ruido o calidad del aire.
-                                        Creemos que extender el uso de esta herramienta podrá ayudar en la <b>recopilación de datos ambientales</b>, los cuales podrán ser usados para <i>detectar
-                                        zonas problemáticas</i> y servir de <i>apoyo para la toma de decisiones</i> relacionadas con el medio ambiente. <br> <br> 
-                                        
-                                        Al ser un proyecto libre (<b>Open Source</b>), buscamos que sea útil tanto para la <i>ciudadanía</i>, como para <i>entidades públicas</i>, y pueda ser usado por ambos.
-                                        Conocer el estado medioambiental de la ciudad es, sin duda, un paso más en la <b>evolución natural hacia la Smart City</b>,
-                                        una ciudad más <i>consciente</i> con ayuda de soluciones tecnológicas como WizeTher. </h5>
+                                    
+                                    <p style="margin-top: 2.5%;">
+                                        <h5>Su nombre surge como resultado de combinar <i>Wize</i> y <i>Weather</i>. Se trata de un proyecto que usa <b>tecnología radio Wize</b>,
+                                            una nueva opción de LPWAN (como lo son LoRa o Sigfox) para <b>soluciones IoT</b>. El objetivo de <i>WizeTher</i>, como su propio nombre indica,
+                                            es el de servir como <b><i>estación meteorológica</i></b> que, lejos de ser sólo eso, monitoriza otros parámetros como ruido o calidad del aire.</h5>
+                                    </p>
+
+                                    <p>
+                                        <h5>Al ser un proyecto libre (<i><b>Open Source</b></i>), buscamos que sea útil tanto para la <i>ciudadanía</i>, como para <i>entidades públicas</i>, y pueda ser usado por ambos.
+                                            Conocer el estado medioambiental de la ciudad es, sin duda, un paso más en la <b>evolución natural hacia la Smart City</b>,
+                                            una ciudad más <i>consciente</i> con ayuda de soluciones tecnológicas como <i>WizeTher</i>.</h5>
+                                    </p>
+
+                                    <div class="caja" style="margin-top: 10%;">
+                                        <h2>¿Por qué <i>WizeTher</i>?</h2>
+
+                                        <p style="margin-top: 2.5%;">
+                                            <h5>Creemos que extender el uso de esta herramienta podrá ayudar en la <b>recopilación de datos ambientales</b>, los cuales podrán ser usados para <i>detectar
+                                                zonas problemáticas</i> y servir de <i>apoyo para la toma de decisiones</i> relacionadas con el medio ambiente.</h5>
+                                        </p>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -210,7 +223,7 @@
 
                             <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="margin-top: 10%;">
                                 <div class="head_title text-center">
-                                    <h2>¿En qué consiste una estación WizeTher?</h2>
+                                    <h2>¿En qué consiste una estación <i>WizeTher</i>?</h2>
                                     <h5>Es muy sencillo, cuenta con <b>tres sensores</b> (que son los que recogen datos del ambiente),
                                         <b>dos actuadores</b> (que son los que nos ayudarán a visualizar los datos en el propio dispositivo, en el momento en el que se recogen),
                                         un <b>dispositivo controlador</b> (recoge las instrucciones que le digamos, como estar escuchando los sensores y enviar datos a través de la antena),
@@ -448,7 +461,7 @@
                                     <div class="collapse navbar-collapse" id="navbar-footer">
                                         <ul class="nav navbar-nav navbar-center">
                                             <li><a href="#home">Home</a></li>                    
-                                            <li><a href="#features">En que consiste</a></li>
+                                            <li><a href="#features">En qué consiste</a></li>
                                             <li><a href="#reviews">OpenAPI</a></li>
                                             <li><a href="#FAQ">FAQ</a></li>
                                         </ul>
@@ -492,14 +505,14 @@
                     // https://leafletjs.com/examples/quick-start/
                     var mymap = L.map('mapid').setView([37.60158481756329, -0.9787592368057084], 15);
 
-                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        maxZoom: 18,
-                        id: 'mapbox/streets-v11',
-                        tileSize: 512,
-                        zoomOffset: -1,
-                        accessToken: 'pk.eyJ1IjoicmFuaWl0YSIsImEiOiJja21ieDJxazEyNXZjMnFtdHZiajI5aHBkIn0.Dpro9CbpXhdVlfpTtBOYEA'
-                    }).addTo(mymap);
+                    //L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    //    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    //    maxZoom: 18,
+                    //    id: 'mapbox/streets-v11',
+                    //    tileSize: 512,
+                    //    zoomOffset: -1,
+                    //    accessToken: 'pk.eyJ1IjoicmFuaWl0YSIsImEiOiJja21ieDJxazEyNXZjMnFtdHZiajI5aHBkIn0.Dpro9CbpXhdVlfpTtBOYEA'
+                    //}).addTo(mymap);
 
 
                     var marker1 = L.marker([37.60255830761039, -0.9808489618245347], {icon: orangeIcon}).addTo(mymap);
