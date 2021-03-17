@@ -12,3 +12,5 @@ redis
 rq
 email_validator
 mysqlclient
+influxdb-client
+pandas

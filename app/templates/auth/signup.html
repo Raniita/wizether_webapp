@@ -28,7 +28,7 @@
     <form class="form-signin" method="POST" action="/signup">
         {{ form.csrf_token }}
         
-        <!-- <img class="mb-4" src="{{ url_for('static',filename='img/logo.webp') }}" alt="" height="72"> -->
+        <img class="mb-4" src="{{ url_for('static',filename='landing/img/logo_wizether_vertical.png') }}" alt="" height="180">
 
         <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
 
@@ -87,9 +87,11 @@
         
     </form>
         
+    <!-- 
     <div class="login-signup">
         <span>Already have an account? <a href="{{ url_for('auth.login') }}">Log in.</a></span>
     </div>
+    -->
 
 </div>
 {% endblock %}

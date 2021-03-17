@@ -1,12 +1,75 @@
-from flask import Blueprint, render_template, request, redirect, jsonify, url_for, g
+from flask import Blueprint, render_template, request, redirect, jsonify, url_for, g, send_file, current_app, flash
 from flask import current_app as app
 from flask_login import login_required, current_user
 from rq import push_connection, pop_connection, Queue
 import redis
 
+from influxdb_client import InfluxDBClient
+from datetime import datetime
+from pathlib import Path
+import pandas as pd
+import os
+
 from app import tasks
+from app.forms import QueryAPI
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
+    
+
+#
+# Open API
+#
+
+@api_bp.route('/query_date_range', methods=['GET', 'POST'])
+@login_required
+def query_date_range():
+
+    token = app.config['INFLUX_TOKEN']
+    org = app.config['INFLUX_ORG']
+    bucket = app.config['INFLUX_BUCKET']
+    url = app.config['INFLUX_URL']
+
+    form = QueryAPI(request.form)
+    if form.validate_on_submit():
+        start = form.start_date.data.strftime("%Y-%m-%dT%H:%M:%SZ")
+        stop = form.stop_date.data.strftime("%Y-%m-%dT%H:%M:%SZ")
+        field = form.fields.data 
+
+        query = ''' 
+        from(bucket:"{}")
+            |> range(start: {}, stop: {})
+            |> filter(fn:(r) =>
+            r._measurement == "sensorWizether" and
+            r._field == "{}")
+        '''.format(bucket, start, stop, field)
+
+        #print(query)
+
+        root_path = Path(current_app.root_path).parent
+        upload_path = os.path.join(root_path, 'api_tmp')
+
+        client = InfluxDBClient(url=url, token=token, org=org, debug=False)
+        df_result = client.query_api().query_data_frame(org=org, query=query)
+
+        filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
+        filename_path = os.path.join(upload_path, filename)
+        if df_result.empty:
+            flash('No se han encontrado datos')
+            return redirect(url_for('dashboard.open_api'))
+        else:
+            df_result.to_csv(filename_path, index = False)
+
+        return send_file(filename_path, as_attachment=True) 
+    else:
+        flash('Error. Revisa los datos introducidos y vuelve a probar.')
+        return redirect(url_for('dashboard.open_api'))
+
+
+
+
+#
+# Tasks
+#
 
 # Task view
 @api_bp.route('/tasks/', methods=['GET'])

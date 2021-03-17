@@ -78,13 +78,26 @@ def signup():
         current_app.logger.error(error)
     
     # Check if user already login
-    if current_user.is_authenticated:
-        error = 'User already logged in. Sign out first.'
+    #if current_user.is_authenticated:
+    #    error = 'User already logged in. Sign out first.'
+    #    flash(error)
+    #    current_app.logger.error(error)
+    #    return redirect(url_for('dashboard.home'))
+    #else:
+    #    return render_template('auth/signup.html',form=form)
+
+    if not current_user.is_authenticated:
+        error = 'Contacta con soporte para que te creen una cuenta.'
         flash(error)
-        current_app.logger.error(error)
-        return redirect(url_for('dashboard.home'))
+        current_app.logger.error('An user try to signup.')
+        return redirect(url_for('auth.login'))
+    elif current_user.is_admin():
+        return render_template('auth/signup.html', form=form)
     else:
-        return render_template('auth/signup.html',form=form)
+        error = 'No tienes permisos para hacer eso.'
+        flash(error)
+        current_app.logger.error('User {} try to signup a new account'.format(current_user))
+        return redirect(url_for('dashboard.home'))
 
 
 #

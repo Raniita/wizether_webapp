@@ -18,6 +18,9 @@ db/
 venv/
 env/
 
+api_tmp/
+*.csv
+
 *.pyc
 __pycache__/
 

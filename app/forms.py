@@ -1,12 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
+from wtforms.fields.html5 import DateField
+from wtforms.fields import SelectField
 
 class SignupForm(FlaskForm):
     """ User sign-up Form """
 
     name = StringField(
-        'Name',
+        'Nombre',
         validators=[DataRequired()]
     )
 
@@ -14,24 +16,24 @@ class SignupForm(FlaskForm):
         'Email',
         validators=[
             Length(min=6),
-            Email(message='Enter a valid email.'),
+            Email(message='Introduce un email válido.'),
             DataRequired()
         ]
     )
 
     password = PasswordField(
-        'Password',
+        'Contraseña',
         validators=[
             DataRequired(),
-            Length(min=6, message='Select a stronger password.')
+            Length(min=6, message='Utiliza una contraseña más fuerte.')
         ]
     )
 
     confirm = PasswordField(
-        'Confirm your Password',
+        'Confirma tu contraseña',
         validators=[
             DataRequired(),
-            EqualTo('password', message='Password must match.')
+            EqualTo('password', message='Las contraseñas deben coincidir.')
         ]
     )
 
@@ -40,7 +42,7 @@ class SignupForm(FlaskForm):
         validators=[Optional()]
     )
 
-    submit = SubmitField('Register')
+    submit = SubmitField('Registrar')
 
 class LoginForm(FlaskForm):
     """ User Log-in Form. """
@@ -49,50 +51,72 @@ class LoginForm(FlaskForm):
         'Email',
         validators=[
             DataRequired(),
-            Email(message='Enter a valid email.')
+            Email(message='Introduce un email válido.')
         ]
     )
 
     password = PasswordField(
-        'Password',
+        'Contraseña',
         validators=[DataRequired()]
     )
 
-    submit = SubmitField('Log In')
+    submit = SubmitField('Acceder')
 
 class ChangePasswordForm(FlaskForm):
     """ User change password """
 
     password = PasswordField(
-        'Password',
+        'Contraseña',
         validators=[
             DataRequired(),
-            Length(min=6, message='Select a stronger password.')
+            Length(min=6, message='Utiliza una contraseña más fuerte.')
         ]
     )
 
     confirm = PasswordField(
-        'Confirm your Password',
+        'Confirma tu contraseña',
         validators=[
             DataRequired(),
-            EqualTo('password', message='Password must match.')
+            EqualTo('password', message='Las contraseñas deben coincidir.')
         ]
     )
 
     new_password = PasswordField(
-        'New Password',
+        'Nueva contraseña',
         validators=[
             DataRequired(),
-            Length(min=6, message='Select a stronger password.')
+            Length(min=6, message='Utiliza una contraseña más fuerte.')
         ]
     )
 
     confirm_new = PasswordField(
-        'Confirm your Password',
+        'Confirma tu nueva contraseña',
         validators=[
             DataRequired(),
-            EqualTo('new_password', message='Password must match.')
+            EqualTo('new_password', message='Las contraseñas deben coincidir.')
         ]
     )
 
-    submit = SubmitField('Change actual user password')
+    submit = SubmitField('Cambiar contraseña')
+
+
+class QueryAPI(FlaskForm):
+    """ Try of Form for Query Data """
+
+    start_date = DateField(
+        'Fecha de inicio'
+    )
+
+    stop_date = DateField(
+        'Fecha de fin'
+    )
+
+    fields = SelectField(
+        'Selecciona el dato', choices=[('temperature', 'Temperatura'),
+                                                    ('pressure', 'Presión'),
+                                                    ('humidity', 'Humedad'),
+                                                    ('loudness', 'Ruido'),
+                                                    ('air_quality', 'Calidad de aire')]
+    )
+
+    submit = SubmitField('Obtener datos')

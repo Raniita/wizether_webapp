@@ -17,6 +17,14 @@ class Config(object):
 
     SESSION_COOKIE_SECURE = True
 
+    INFLUX_ORG = os.environ.get('INFLUX_ORG', 'wize_org')
+    INFLUX_BUCKET = os.environ.get('INFLUX_BUCKET', 'wize_data')
+    INFLUX_TOKEN = os.environ.get('INFLUX_TOKEN', '')
+
+    # Api folder
+    if not os.path.exists('api_tmp'):
+        os.makedirs('api_tmp')
+
 class ProductionConfig(Config):
     DB_USER = os.environ.get('MYSQL_USER', 'root')
     DB_PASSWORD = os.environ.get('MYSQL_PASSWORD', 'root')
@@ -29,6 +37,10 @@ class ProductionConfig(Config):
     REDIS_PORT = os.environ.get('REDIS_HOST_PORT', '6379')
     REDIS_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT
 
+    INFLUX_HOST = os.environ.get('INFLUX_HOST', 'influxdb')
+    INFLUX_PORT = os.environ.get('INFLUX_PORT', '8086')
+    INFLUX_URL = 'http://' + INFLUX_HOST + ':' + INFLUX_PORT + '/'
+
 class DevelopmentConfig(Config):
     DEBUG = True
 
@@ -39,6 +51,8 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db', 'app.sqlite')
 
     REDIS_URL = 'redis://localhost:6379'
+
+    INFLUX_URL = "http://10.0.0.3:8086/"
 
     #SESSION_COOKIE_SECURE = True
 

@@ -1,0 +1,208 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Open API{% endblock %}
+
+{% set active_page = "api" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- End row -->
+
+    <div class="row" style="margin-top: 5%;">
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
+                    <form action="/api/query_date_range" method="POST">            
+                        <fieldset class="start_date">
+                            {{ form.start_date.label }}
+                            {{ form.start_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="stop_date">
+                            {{ form.stop_date.label }}
+                            {{ form.stop_date(class='datepicker') }}
+                        </fieldset>
+                
+                        <fieldset class="selector">
+                            {{ form.fields.label }}
+                            {{ form.fields}}
+                        </fieldset>
+                        
+                        {{ form.hidden_tag() }}
+                
+                        <div class="submit-button">
+                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div><!-- End container -->
+
+{% endblock %}

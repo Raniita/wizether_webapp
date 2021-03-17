@@ -21,13 +21,13 @@
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link" href="#">
-                    <span data-feather="user"></span> Hello {{user.name}}!</a>
+                    <span data-feather="user"></span> Bienvenido {{user.name}}!</a>
             </li>
         </ul>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link" href="{{ url_for('auth.logout') }}">
-                    Sign out</a>
+                    Desconectar <span data-feather="log-out"></span> </a>
             </li>
         </ul>
     </nav>
@@ -40,7 +40,7 @@
     
                         <li class="nav-item">
                             <a class="nav-link {% if active_page == 'dashboard' %}active{% endif %}"
-                                href="{{ url_for('dashboard.home') }}">
+                                href="{{ url_for('dashboard.home') }}" style="margin-top: 2.5%;">
                                 <span data-feather="home"></span>
                                 Inicio <span class="sr-only">(current)</span>
                             </a>
@@ -48,58 +48,45 @@
                     </ul>
     
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Header1</span>
+                        <span>Estaciones</span>
                     </h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
                             <a class="nav-link" href="">
                                 <span data-feather="compass"></span>
-                                Link1
+                                Mis estaciones
                             </a>
                         </li>
-    
-                    </ul>
-    
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Header2</span>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-    
+
                         <li class="nav-item">
                             <a class="nav-link" href="">
-                                <span data-feather="home"></span>
-                                Link1
+                                <span data-feather="cloud"></span>
+                                Nueva estación
                             </a>
                         </li>
-    
+
                         {% if user.role == "admin" %}
                         <li class="nav-item">
                             <a class="nav-link {% if active_page == " publish" %}active{% endif %}"
                                 href="">
-                                <span data-feather="git-merge"></span>
-                                Link2
+                                <span data-feather="cpu"></span>
+                                Nuevo gateway
                             </a>
                         </li>
                         {% endif %}
     
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <span data-feather="upload-cloud"></span>
-                                Link3
-                            </a>
-                        </li>
+                    </ul>
+    
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Datos</span>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
     
                         <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <span data-feather="upload-cloud"></span>
-                                Link4
-                            </a>
-                        </li>
-    
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <span data-feather="download-cloud"></span>
-                                Link5
+                            <a class="nav-link {% if active_page == "api" %}active{% endif %}" 
+                                href="/openapi">
+                                <span data-feather="hard-drive"></span>
+                                Open API
                             </a>
                         </li>
     
