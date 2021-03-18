@@ -4,7 +4,6 @@ from flask_login import login_required, current_user
 from rq import push_connection, pop_connection, Queue
 import redis
 
-from influxdb_client import InfluxDBClient
 from datetime import datetime
 from pathlib import Path
 import pandas as pd
@@ -12,9 +11,9 @@ import os
 
 from app import tasks
 from app.forms import QueryAPI_DateRange_Field, QueryAPI_DateRange_All
+from app.influx import sendQueryInflux, removeUselessColumns
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
-    
 
 #
 # Open API
@@ -23,11 +22,6 @@ api_bp = Blueprint('api', __name__, url_prefix='/api')
 @api_bp.route('/query_date_range', methods=['POST'])
 @login_required
 def query_date_range():
-
-    token = app.config['INFLUX_TOKEN']
-    org = app.config['INFLUX_ORG']
-    bucket = app.config['INFLUX_BUCKET']
-    url = app.config['INFLUX_URL']
 
     form = QueryAPI_DateRange_Field(request.form)
     if form.validate_on_submit():
@@ -48,26 +42,23 @@ def query_date_range():
             r._measurement == "sensorWizether" and
             r._field == "{}" and
             r.device == "{}")
-        '''.format(bucket, start, stop, field, device)
+        '''.format(app.config['INFLUX_BUCKET'], start, stop, field, device)
 
         #print(query)
 
         root_path = Path(current_app.root_path).parent
         upload_path = os.path.join(root_path, 'api_tmp')
 
-        client = InfluxDBClient(url=url, token=token, org=org, debug=False)
-        df_result = client.query_api().query_data_frame(org=org, query=query)
+        df_result = sendQueryInflux(query)
 
         filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
         filename_path = os.path.join(upload_path, filename)
+        
         if df_result.empty:
-            flash('No se han encontrado datos')
+            flash('Error. No se han encontrado datos')
             return redirect(url_for('dashboard.open_api'))
         else:
-            # Remove useless cols
-            df_result = df_result.drop(columns=['result', 'table', '_start', '_stop', '_measurement'])
-            df_result = df_result.rename(columns={'_time': 'time', '_value': 'value', '_field': 'field'})
-            
+            df_result = removeUselessColumns(df_result)
             df_result.to_csv(filename_path, index = False)
 
         return send_file(filename_path, as_attachment=True) 
@@ -75,14 +66,10 @@ def query_date_range():
         flash('Error. Revisa los datos introducidos y vuelve a probar.')
         return redirect(url_for('dashboard.open_api'))
 
+
 @api_bp.route('/query_all_date_range', methods=['POST'])
 @login_required
 def query_date_range_all():
-
-    token = app.config['INFLUX_TOKEN']
-    org = app.config['INFLUX_ORG']
-    bucket = app.config['INFLUX_BUCKET']
-    url = app.config['INFLUX_URL']
 
     form = QueryAPI_DateRange_All(request.form)
     if form.validate_on_submit():
@@ -101,26 +88,24 @@ def query_date_range_all():
             |> filter(fn:(r) =>
             r._measurement == "sensorWizether" and
             r.device == "{}")
-        '''.format(bucket, start, stop, device)
+        '''.format(app.config['INFLUX_BUCKET'], start, stop, device)
 
         #print(query)
 
         root_path = Path(current_app.root_path).parent
         upload_path = os.path.join(root_path, 'api_tmp')
 
-        client = InfluxDBClient(url=url, token=token, org=org, debug=False)
-        df_result = client.query_api().query_data_frame(org=org, query=query)
+        df_result = sendQueryInflux(query)
 
         filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
         filename_path = os.path.join(upload_path, filename)
+
         if df_result.empty:
-            flash('No se han encontrado datos')
+            flash('Error. No se han encontrado datos')
             return redirect(url_for('dashboard.open_api'))
         else:
             # Remove useless cols
-            df_result = df_result.drop(columns=['result', 'table', '_start', '_stop', '_measurement'])
-            df_result = df_result.rename(columns={'_time': 'time', '_value': 'value', '_field': 'field'})
-            print(df_result.head())
+            df_result = removeUselessColumns(df_result)
             df_result.to_csv(filename_path, index = False)
 
         return send_file(filename_path, as_attachment=True) 
