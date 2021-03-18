@@ -14,24 +14,29 @@
                     <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
                     <form action="/api/query_date_range" method="POST">            
                         <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
+                            {{ form1.start_date.label }}
+                            {{ form1.start_date(class='datepicker') }}
                         </fieldset>
                 
                         <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
+                            {{ form1.stop_date.label }}
+                            {{ form1.stop_date(class='datepicker') }}
                         </fieldset>
                 
                         <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
+                            {{ form1.fields.label }}
+                            {{ form1.fields}}
                         </fieldset>
                         
-                        {{ form.hidden_tag() }}
+                        <fieldset class="sensors">
+                            {{ form1.sensors.label }}
+                            {{ form1.sensors }}
+                        </fieldset>
+
+                        {{ form1.hidden_tag() }}
                 
                         <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                            {{ form1.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
                         </div>
                     </form>
                 </div>
@@ -43,27 +48,27 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
-                    <form action="/api/query_date_range" method="POST">            
+                    <h5 class="card-title">Obtener todos los datos entre un rango de fechas</h5>
+                    <form action="/api/query_all_date_range" method="POST">            
                         <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
+                            {{ form2.start_date.label }}
+                            {{ form2.start_date(class='datepicker') }}
                         </fieldset>
                 
                         <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
+                            {{ form2.stop_date.label }}
+                            {{ form2.stop_date(class='datepicker') }}
                         </fieldset>
                         
-                        {{ form.hidden_tag() }}
+                        <fieldset class="sensors">
+                            {{ form2.sensors.label }}
+                            {{ form2.sensors }}
+                        </fieldset>
+
+                        {{ form2.hidden_tag() }}
                 
                         <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                            {{ form2.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
                         </div>
                     </form>
                 </div>
@@ -73,33 +78,7 @@
 
         <div class="col-md-4">
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
-                    <form action="/api/query_date_range" method="POST">            
-                        <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
-                        </fieldset>
-                        
-                        {{ form.hidden_tag() }}
-                
-                        <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
-                        </div>
-                    </form>
-                </div>
-            </div>
+
 
         </div>
     </div><!-- End row -->
@@ -108,97 +87,19 @@
 
         <div class="col-md-4">
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
-                    <form action="/api/query_date_range" method="POST">            
-                        <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
-                        </fieldset>
-                        
-                        {{ form.hidden_tag() }}
-                
-                        <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
-                        </div>
-                    </form>
-                </div>
-            </div>
+        
 
         </div>
 
         <div class="col-md-4">
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
-                    <form action="/api/query_date_range" method="POST">            
-                        <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
-                        </fieldset>
-                        
-                        {{ form.hidden_tag() }}
-                
-                        <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
 
         </div>
 
         <div class="col-md-4">
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Obtener datos entre un rango de fechas</h5>
-                    <form action="/api/query_date_range" method="POST">            
-                        <fieldset class="start_date">
-                            {{ form.start_date.label }}
-                            {{ form.start_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="stop_date">
-                            {{ form.stop_date.label }}
-                            {{ form.stop_date(class='datepicker') }}
-                        </fieldset>
-                
-                        <fieldset class="selector">
-                            {{ form.fields.label }}
-                            {{ form.fields}}
-                        </fieldset>
-                        
-                        {{ form.hidden_tag() }}
-                
-                        <div class="submit-button">
-                            {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
 
         </div>
 

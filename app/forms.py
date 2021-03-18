@@ -100,8 +100,8 @@ class ChangePasswordForm(FlaskForm):
     submit = SubmitField('Cambiar contraseña')
 
 
-class QueryAPI(FlaskForm):
-    """ Try of Form for Query Data """
+class QueryAPI_DateRange_Field(FlaskForm):
+    """ Get one field on a date range """
 
     start_date = DateField(
         'Fecha de inicio'
@@ -117,6 +117,27 @@ class QueryAPI(FlaskForm):
                                                     ('humidity', 'Humedad'),
                                                     ('loudness', 'Ruido'),
                                                     ('air_quality', 'Calidad de aire')]
+    )
+
+    sensors = SelectField(
+        'Filtrar por sensor', choices=[('20212230','20212230')]
+    )
+
+    submit = SubmitField('Obtener datos')
+
+class QueryAPI_DateRange_All(FlaskForm):
+    """ Get all fields on a date range """
+
+    start_date = DateField(
+        'Fecha de inicio'
+    )
+
+    stop_date = DateField(
+        'Fecha de fin'
+    )
+
+    sensors = SelectField(
+        'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
     submit = SubmitField('Obtener datos')

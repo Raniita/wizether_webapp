@@ -42,7 +42,14 @@
                             <a class="nav-link {% if active_page == 'dashboard' %}active{% endif %}"
                                 href="{{ url_for('dashboard.home') }}" style="margin-top: 2.5%;">
                                 <span data-feather="home"></span>
-                                Inicio <span class="sr-only">(current)</span>
+                                Portal <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <span data-feather="corner-down-left"></span>
+                                Inicio
                             </a>
                         </li>
                     </ul>
@@ -67,7 +74,7 @@
 
                         {% if user.role == "admin" %}
                         <li class="nav-item">
-                            <a class="nav-link {% if active_page == " publish" %}active{% endif %}"
+                            <a class="nav-link"
                                 href="">
                                 <span data-feather="cpu"></span>
                                 Nuevo gateway

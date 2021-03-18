@@ -4,7 +4,7 @@ from flask_login import login_required, logout_user, current_user
 
 from app import tasks
 from app.permission import restricted_role
-from app.forms import QueryAPI
+from app.forms import QueryAPI_DateRange_Field, QueryAPI_DateRange_All
 
 dashboard_bp = Blueprint('dashboard', __name__)
 
@@ -24,6 +24,8 @@ def home():
 @login_required
 def open_api():
 
-    form = QueryAPI()
+    form1 = QueryAPI_DateRange_Field()
+    form2 = QueryAPI_DateRange_All()
 
-    return render_template('dashboard/api.html', user=current_user, form=form)
+    return render_template('dashboard/api.html', user=current_user, form1=form1,
+                                                                    form2=form2)
