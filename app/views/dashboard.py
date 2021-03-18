@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, flash
 from flask import current_app as app
 from flask_login import login_required, logout_user, current_user
 
-from app import tasks
+from app import tasks, DEVICES
 from app.permission import restricted_role
 from app.forms import NewStation, NewGateway, QueryAPI_DateRange_Field, QueryAPI_DateRange_All
 
@@ -22,7 +22,7 @@ def home():
 @dashboard_bp.route('/my_stations')
 @login_required
 def my_stations():
-    return render_template('dashboard/my_stations.html', user=current_user)
+    return render_template('dashboard/my_stations.html', user=current_user, devices=DEVICES)
 
 
 #

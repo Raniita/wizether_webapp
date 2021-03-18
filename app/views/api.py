@@ -36,6 +36,11 @@ def query_date_range():
         field = form.fields.data
         device = form.sensors.data
 
+        # Check if start date its wrong
+        if(start > stop):
+            flash('Error. La fecha de inicio no puede ser mayor a la fecha de fin.')
+            return redirect(url_for('dashboard.open_api'))
+
         query = ''' 
         from(bucket:"{}")
             |> range(start: {}, stop: {})
@@ -84,6 +89,11 @@ def query_date_range_all():
         start = form.start_date.data.strftime("%Y-%m-%dT%H:%M:%SZ")
         stop = form.stop_date.data.strftime("%Y-%m-%dT%H:%M:%SZ")
         device = form.sensors.data
+
+        # Check if start date its wrong
+        if(start > stop):
+            flash('Error. La fecha de inicio no puede ser mayor a la fecha de fin.')
+            return redirect(url_for('dashboard.open_api'))
 
         query = ''' 
         from(bucket:"{}")

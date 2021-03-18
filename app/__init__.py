@@ -20,6 +20,14 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 admin = Admin(name='WizeTher', index_view=CustomAdminIndexView())
 
+DEVICES = [
+    {'device': '20212230',
+     'latitude': '37',
+     'longitude': '-0.9',
+     'location': 'in-door',
+     'version': 'v1'}
+]
+
 # Application factory init
 def create_app():
     app = Flask(__name__)
