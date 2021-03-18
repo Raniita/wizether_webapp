@@ -59,28 +59,26 @@
                     </h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link {% if active_page == "my_stations" %}active{% endif %}"  href="/my_stations">
                                 <span data-feather="compass"></span>
                                 Mis estaciones
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link {% if active_page == "new_station" %}active{% endif %}" href="/new_station">
                                 <span data-feather="cloud"></span>
                                 Nueva estación
                             </a>
                         </li>
 
-                        {% if user.role == "admin" %}
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="">
+                            <a class="nav-link {% if active_page == "new_gateway" %}active{% endif %}"
+                                href="/new_gateway">
                                 <span data-feather="cpu"></span>
                                 Nuevo gateway
                             </a>
                         </li>
-                        {% endif %}
     
                     </ul>
     

@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
 from wtforms.fields.html5 import DateField
-from wtforms.fields import SelectField
+from wtforms.fields import SelectField, DecimalField
 
 class SignupForm(FlaskForm):
     """ User sign-up Form """
@@ -99,6 +99,62 @@ class ChangePasswordForm(FlaskForm):
 
     submit = SubmitField('Cambiar contraseña')
 
+#
+#   Nueva estación
+#
+class NewStation(FlaskForm):
+    """ Add a new station to the system """
+
+    device_name = StringField(
+        'Número de seríe de tu nueva estación'
+    )
+
+    lat = DecimalField(
+        'Latitud aproximada', places=2
+    )
+
+    lon = DecimalField(
+        'Longitud aproximada', places=2
+    )
+
+    place = SelectField(
+        'Selecciona su emplazamiento', choices=[('in-door','Interior'), ('out-door', 'Exterior')]
+    )
+
+    submit = SubmitField('Confirmar')
+
+#
+#   Nuevo gateway
+#
+class NewGateway(FlaskForm):
+    """ Add a new gateway to the system """
+
+    device_name = StringField(
+        'Número de seríe del nuevo gateway'
+    )
+
+    lat = DecimalField(
+        'Latitud aproximada', places=2
+    )
+
+    lon = DecimalField(
+        'Longitud aproximada', places=2
+    )
+
+    place = SelectField(
+        'Selecciona su emplazamiento', choices=[('in-door','Interior'), ('out-door', 'Exterior')]
+    )
+
+    power = SelectField(
+        'Selecciona la potencia de transmisión', choices=[('21', '21 dBm'), ('16','16 dBm')]
+    )
+
+    submit = SubmitField('Confirmar')
+
+
+#
+#   OpenAPI
+#
 
 class QueryAPI_DateRange_Field(FlaskForm):
     """ Get one field on a date range """
