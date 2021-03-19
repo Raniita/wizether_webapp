@@ -53,7 +53,7 @@ def new_station():
     return render_template('dashboard/new_station.html', user=current_user, form=form)
 
 #
-#
+# Solicitar Nueva estación
 #
 @dashboard_bp.route('/ask_station', methods=['GET', 'POST'])
 @login_required
