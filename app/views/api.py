@@ -10,8 +10,8 @@ import pandas as pd
 import os
 
 from app import tasks
-from app.forms import QueryAPI_DateRange_Field, QueryAPI_DateRange_All
 from app.influx import sendQueryInflux, removeUselessColumns
+from app.forms import *
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -113,6 +113,122 @@ def query_date_range_all():
         flash('Error. Revisa los datos introducidos y vuelve a probar.')
         return redirect(url_for('dashboard.open_api'))
 
+@api_bp.route('/query_history_device', methods=['POST'])
+@login_required
+def query_history_device():
+
+    form = QueryAPI_history_device(request.form)
+    if form.validate_on_submit():
+        device = form.sensors.data
+
+        query = ''' 
+            from(bucket:"{}")
+                |> range(start: 2021-03-01T00:00:00Z, stop: now())
+                |> filter(fn:(r) =>
+                r._measurement == "sensorWizether" and
+                r.device == "{}")
+        '''.format(app.config['INFLUX_BUCKET'], device)
+
+        #print(query)
+
+        root_path = Path(current_app.root_path).parent
+        upload_path = os.path.join(root_path, 'api_tmp')
+
+        df_result = sendQueryInflux(query)
+
+        filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
+        filename_path = os.path.join(upload_path, filename)
+
+        if df_result.empty:
+            flash('Error. No se han encontrado datos')
+            return redirect(url_for('dashboard.open_api'))
+        else:
+            df_result = removeUselessColumns(df_result)
+            df_result.to_csv(filename_path, index = False)
+
+        return send_file(filename_path, as_attachment=True) 
+    else:
+        flash('Error. Revisa los datos introducidos y vuelve a probar.')
+        return redirect(url_for('dashboard.open_api'))
+
+
+@api_bp.route('/query_lastweek_device', methods=['POST'])
+@login_required
+def query_lastweek_device():
+
+    form = QueryAPI_lastweek_device(request.form)
+    if form.validate_on_submit():
+        device = form.sensors.data
+
+        query = ''' 
+            from(bucket:"{}")
+                |> range(start: -7d, stop: now())
+                |> filter(fn:(r) =>
+                r._measurement == "sensorWizether" and
+                r.device == "{}")
+        '''.format(app.config['INFLUX_BUCKET'], device)
+
+        #print(query)
+
+        root_path = Path(current_app.root_path).parent
+        upload_path = os.path.join(root_path, 'api_tmp')
+
+        df_result = sendQueryInflux(query)
+
+        filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
+        filename_path = os.path.join(upload_path, filename)
+
+        if df_result.empty:
+            flash('Error. No se han encontrado datos')
+            return redirect(url_for('dashboard.open_api'))
+        else:
+            df_result = removeUselessColumns(df_result)
+            df_result.to_csv(filename_path, index = False)
+
+        return send_file(filename_path, as_attachment=True) 
+    else:
+        flash('Error. Revisa los datos introducidos y vuelve a probar.')
+        return redirect(url_for('dashboard.open_api'))
+
+
+@api_bp.route('/query_lastweek_device_max', methods=['POST'])
+@login_required
+def query_lastweek_device_max():
+
+    form = QueryAPI_lastweek_device_max(request.form)
+    if form.validate_on_submit():
+        device = form.sensors.data
+
+        query = ''' 
+            from(bucket:"{}")
+                |> range(start: -7d, stop: now())
+                |> filter(fn:(r) =>
+                r._measurement == "sensorWizether" and
+                r.device == "{}")
+                |> max()
+        '''.format(app.config['INFLUX_BUCKET'], device)
+
+        #print(query)
+
+        root_path = Path(current_app.root_path).parent
+        upload_path = os.path.join(root_path, 'api_tmp')
+
+        df_result = sendQueryInflux(query)
+
+        filename = 'data_' + datetime.now().strftime("%Y-%m-%d") + '.csv'
+        filename_path = os.path.join(upload_path, filename)
+
+        if df_result.empty:
+            flash('Error. No se han encontrado datos')
+            return redirect(url_for('dashboard.open_api'))
+        else:
+            df_result = removeUselessColumns(df_result)
+            df_result.to_csv(filename_path, index = False)
+
+        return send_file(filename_path, as_attachment=True) 
+    else:
+        flash('Error. Revisa los datos introducidos y vuelve a probar.')
+        return redirect(url_for('dashboard.open_api'))
 
 #
 # Tasks

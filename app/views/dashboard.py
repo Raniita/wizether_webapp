@@ -4,7 +4,7 @@ from flask_login import login_required, logout_user, current_user
 
 from app import tasks, DEVICES
 from app.permission import restricted_role
-from app.forms import NewStation, AskStation, NewGateway, QueryAPI_DateRange_Field, QueryAPI_DateRange_All
+from app.forms import *
 
 dashboard_bp = Blueprint('dashboard', __name__)
 
@@ -95,6 +95,13 @@ def open_api():
 
     form1 = QueryAPI_DateRange_Field()
     form2 = QueryAPI_DateRange_All()
+    form3 = QueryAPI_history_device()
+
+    form4 = QueryAPI_lastweek_device()
+    form5 = QueryAPI_lastweek_device_max()
 
     return render_template('dashboard/api.html', user=current_user, form1=form1,
-                                                                    form2=form2)
+                                                                    form2=form2,
+                                                                    form3=form3,
+                                                                    form4=form4,
+                                                                    form5=form5)

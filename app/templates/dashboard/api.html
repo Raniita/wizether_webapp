@@ -78,7 +78,24 @@
 
         <div class="col-md-4">
 
-
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener todo el histórico de una estación</h5>
+                    <form action="/api/query_history_device" method="POST">
+            
+                        <fieldset class="sensors">
+                            {{ form3.sensors.label }}
+                            {{ form3.sensors }}
+                        </fieldset>
+            
+                        {{ form3.hidden_tag() }}
+            
+                        <div class="submit-button">
+                            {{ form3.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
     </div><!-- End row -->
@@ -87,13 +104,48 @@
 
         <div class="col-md-4">
 
-        
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener todas las medidas de los 7 últimos dias</h5>
+                    <form action="/api/query_lastweek_device" method="POST">
+            
+                        <fieldset class="sensors">
+                            {{ form4.sensors.label }}
+                            {{ form4.sensors }}
+                        </fieldset>
+            
+                        {{ form4.hidden_tag() }}
+            
+                        <div class="submit-button">
+                            {{ form4.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
 
         <div class="col-md-4">
 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Obtener los máximos de los 7 últimos dias</h5>
+                    <form action="/api/query_lastweek_device_max" method="POST">
             
+                        <fieldset class="sensors">
+                            {{ form5.sensors.label }}
+                            {{ form5.sensors }}
+                        </fieldset>
+            
+                        {{ form5.hidden_tag() }}
+            
+                        <div class="submit-button">
+                            {{ form5.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 5%') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
 
         </div>
 
