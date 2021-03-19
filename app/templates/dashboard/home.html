@@ -1,57 +1,114 @@
 {% extends "dashboard/base.html" %}
 {% block title %}Portal{% endblock %}
 
+{% block additional_libraries %}
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}" />
+{% endblock %}
+
 {% set active_page = "dashboard" %}
 
 {% block content %}
-                <h2>Bienvenido al Portal de Usuario de <i>WizeTher</i></h2>
+                <h2></h2>
+                <h1 class="display-4 text-center">Bienvenido al Portal de Usuario de <i>WizeTher</i></h1>
 
-                <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" width="450" height="200" frameborder="0"></iframe>
+                <div class="row" style="margin-top: 1.5%;">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div id="mapid" style="height: 400px;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Header
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" class="graph" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Header
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" class="graph" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-top: 2%;">
+                            <div class="col-md-3">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Header
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" class="graph" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Header
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" class="graph" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Header
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <iframe src="https://grafana.wize.ranii.pro/d-solo/grAXaj8Mz/test-dashboard?from=1615805769442&to=1615811484224&orgId=1&panelId=2" class="graph" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    /*
-                    var orangeIcon = new L.Icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
-
-                    // https://leafletjs.com/examples/quick-start/
-                    var mymap = L.map('mapid').setView([37.60158481756329, -0.9787592368057084], 14);
-
-                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        maxZoom: 18,
-                        id: 'mapbox/streets-v11',
-                        tileSize: 512,
-                        zoomOffset: -1,
-                        accessToken: 'pk.eyJ1IjoicmFuaWl0YSIsImEiOiJja21ieDJxazEyNXZjMnFtdHZiajI5aHBkIn0.Dpro9CbpXhdVlfpTtBOYEA'
-                    }).addTo(mymap);
-
-
-                    var marker1 = L.marker([37.60255830761039, -0.9808489618245347], {icon: orangeIcon}).addTo(mymap);
-                    var marker2 = L.marker([37.60158481756329, -0.9787592368057084]).addTo(mymap);
-
-                    var circle = L.circle([37.60158481756329, -0.9787592368057084], {
-                        color: 'red',
-                        fillColor: '#f03',
-                        fillOpacity: 0.5,
-                        radius: 500
-                    }).addTo(mymap);
-
-                    marker1.bindPopup("<b>Hello world!</b><br>I am a popup.")
-                    marker2.bindPopup("<b> Estación base 1</b> <br> RSSI: nose")
-                    circle.bindPopup("Alcance gateway Wize");
-                    */
-                </script>
 {% endblock %}
