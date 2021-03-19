@@ -73,13 +73,20 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link {% if active_page == "ask_station" %}active{% endif %}"
+                                href="/ask_station">
+                                <span data-feather="send"></span>
+                                Solicitar estación
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link {% if active_page == "new_gateway" %}active{% endif %}"
                                 href="/new_gateway">
                                 <span data-feather="cpu"></span>
                                 Nuevo gateway
                             </a>
                         </li>
-    
                     </ul>
     
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

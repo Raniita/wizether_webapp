@@ -124,6 +124,23 @@ class NewStation(FlaskForm):
     submit = SubmitField('Confirmar')
 
 #
+#   Solicitar estación
+#
+class AskStation(FlaskForm):
+    """ Ask to a Station """
+
+    email = StringField(
+        'Email de contacto',
+        validators=[
+            Length(min=6),
+            Email(message='Introduce un email válido.'),
+            DataRequired()
+        ]
+    )
+
+    submit = SubmitField('Confirmar')
+
+#
 #   Nuevo gateway
 #
 class NewGateway(FlaskForm):

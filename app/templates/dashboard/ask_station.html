@@ -1,0 +1,41 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Solicitar Estación{% endblock %}
+
+{% set active_page = "ask_station" %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5 ">
+
+            <div class="card">
+                <div class="card-body">
+
+
+                        <h5 class="card-title text-center">Solicitar una estación</h5>
+                        <p>Facilitanos un email de contacto para que podamos transmitirte toda la
+                            información necesaria sobre la estación <i>WizeTher</i>. Sin compromiso alguno,
+                            te contestaremos a ese mismo email.</p>
+
+                        <form action="/ask_station" style="text-align: center;" method="POST">            
+                            <fieldset class="email" style="margin-top: 2%;">
+                                {{ form.email.label }}
+                                {{ form.email }}
+                            </fieldset>
+    
+                            {{ form.hidden_tag() }}
+                    
+                            <div class="submit-button">
+                                {{ form.submit(class='btn btn-lg btn-primary btn-block', style='margin-top: 3.5%') }}
+                            </div>
+                        </form>
+    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
