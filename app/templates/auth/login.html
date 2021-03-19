@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Log in{% endblock %}
+{% block title %}Acceder{% endblock %}
 
 {% block additional_libraries %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}" />
@@ -35,7 +35,7 @@
 
         <fieldset class="email">
             <!-- {{ form.email.label }} -->
-            {{ form.email(placeholder='youremail@example.com', class='form-control') }}
+            {{ form.email(placeholder='tu_email@ejemplo.com', class='form-control') }}
             {% if form.email.errors %}
             <ul class="errors">
                 {% for error in form.email.errors %}
@@ -46,7 +46,7 @@
 
         <fieldset class="password">
             <!-- {{ form.password.label }} -->
-            {{ form.password(placeholder='Password', class='form-control') }}
+            {{ form.password(placeholder='Contraseña', class='form-control') }}
             {% if form.email.errors %}
             <ul class="errors">
                 {% for error in form.password.errors %}

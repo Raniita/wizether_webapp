@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Sign up{% endblock %}
+{% block title %}Registro{% endblock %}
 
 {% block additional_libraries %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}" />
@@ -30,11 +30,11 @@
         
         <img class="mb-4" src="{{ url_for('static',filename='landing/img/logo_wizether_vertical.png') }}" alt="" height="180">
 
-        <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Registrate aquí</h1>
 
         <fieldset class="name">
             <!--{{ form.name.label }}-->
-            {{ form.name(placeholder='Username', class='form-control') }}
+            {{ form.name(placeholder='Usuario', class='form-control') }}
             {% if form.name.errors %}
             <ul class="errors">
                 {% for error in form.email.errors %}
@@ -45,7 +45,7 @@
         
         <fieldset class="email">
             <!--{{ form.email.label }}-->
-            {{ form.email(placeholder='youremail@example.com', class='form-control') }}
+            {{ form.email(placeholder='tu_email@ejemplo.com', class='form-control') }}
             {% if form.email.errors %}
             <ul class="errors">
                 {% for error in form.email.errors %}
@@ -56,7 +56,7 @@
         
         <fieldset class="password">
             <!--{{ form.password.label }}-->
-            {{ form.password(placeholder='Password', class='form-control') }}
+            {{ form.password(placeholder='Contraseña', class='form-control') }}
             {% if form.password.errors %}
             <ul class="errors">
                 {% for error in form.password.errors %}
@@ -67,7 +67,7 @@
         
         <fieldset class="confirm">
             <!--{{ form.confirm.label }}-->
-            {{ form.confirm(placeholder='Confirm password', class='form-control') }}
+            {{ form.confirm(placeholder='Confirma tu contraseña', class='form-control') }}
             {% if form.confirm.errors %}
             <ul class="errors">
                 {% for error in form.confirm.errors %}
@@ -78,7 +78,7 @@
         
         <fieldset class="website">
             <!--{{ form.website.label }}-->
-            {{ form.website(placeholder='http://example.com', class='form-control') }}
+            {{ form.website(placeholder='http://ejemplo.com', class='form-control') }}
         </fieldset>
         
         <div class="submit-button">

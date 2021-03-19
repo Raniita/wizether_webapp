@@ -36,7 +36,7 @@ def login():
             login_user(user)
             next_page = request.args.get('next')
             return redirect(next_page or url_for('dashboard.home'))
-        flash('Invalid username/password combination')
+        flash('Combinación usuario/contraseña invalida. Vuelve a probar')
         return redirect(url_for('auth.login'))
     
     return render_template('auth/login.html',form=form)
@@ -70,10 +70,11 @@ def signup():
 
             db.session.add(user)
             db.session.commit()
-            login_user(user)
+            current_app.logger.info('New {} registered'.format(user))
+            #login_user(user)
             return redirect(url_for('dashboard.home'))
 
-        error = 'A user already exists with that email address.'
+        error = 'Un usuario ya utiliza esa dirección email.'
         flash(error)
         current_app.logger.error(error)
     
@@ -114,7 +115,7 @@ def change_password():
 
     # Hard bypass if admin_email try to change password
     if current_user.email == current_app.config['ADMIN_EMAIL']:
-        flash('That account cant change password. Use your personal account.')
+        flash('Esta cuenta no puede cambiar de contraseña. Utiliza tu cuenta personal.')
         current_app.logger.error('{} try to change password.'.format(current_user.email))
         return redirect(url_for('dashboard.home'))
 
@@ -156,5 +157,5 @@ def load_user(user_id):
 def unauthorized():
     """Redirect unauthorized users to Login page."""
 
-    flash('You must be logged in to view that page.')
+    flash('Tienes que acceder al sistema antes de ver esa página.')
     return redirect(url_for('auth.login'))

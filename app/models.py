@@ -75,4 +75,4 @@ class User(UserMixin, db.Model):
         self.last_login = time
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User {}>'.format(self.name)
