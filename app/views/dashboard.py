@@ -45,6 +45,7 @@ def new_station():
                 'location': place,
                 'version': 'v1'}
 
+        # On production --> De-sync of WSGI
         DEVICES.append(new_station)
 
         flash('Estación registrada con éxito en latitud: {}, longitud:{} y {}'.format(lat, lon, place))
