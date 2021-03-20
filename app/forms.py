@@ -196,7 +196,7 @@ class QueryAPI_DateRange_Field(FlaskForm):
         'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
-    submit = SubmitField('Obtener datos')
+    submit = SubmitField('Obtener CSV')
 
 class QueryAPI_DateRange_All(FlaskForm):
     """ Get all fields on a date range """
@@ -213,7 +213,7 @@ class QueryAPI_DateRange_All(FlaskForm):
         'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
-    submit = SubmitField('Obtener datos')
+    submit = SubmitField('Obtener CSV')
 
 class QueryAPI_history_device(FlaskForm):
     """ Get all values measured by a device """
@@ -222,7 +222,7 @@ class QueryAPI_history_device(FlaskForm):
         'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
-    submit = SubmitField('Obtener datos')
+    submit = SubmitField('Obtener CSV')
 
 class QueryAPI_lastweek_device(FlaskForm):
     """ Get all values measured over the last week """
@@ -231,7 +231,7 @@ class QueryAPI_lastweek_device(FlaskForm):
         'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
-    submit = SubmitField('Obtener datos')
+    submit = SubmitField('Obtener CSV')
 
 class QueryAPI_lastweek_device_max(FlaskForm):
     """ Get all values measured over the last week """
@@ -240,4 +240,4 @@ class QueryAPI_lastweek_device_max(FlaskForm):
         'Filtrar por sensor', choices=[('20212230','20212230')]
     )
 
-    submit = SubmitField('Obtener datos')
+    submit = SubmitField('Obtener CSV')
