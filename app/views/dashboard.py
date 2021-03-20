@@ -14,7 +14,18 @@ dashboard_bp = Blueprint('dashboard', __name__)
 @dashboard_bp.route('/dashboard')
 @login_required
 def home():
-    return render_template('dashboard/home.html', user=current_user)
+
+    src_temp = "https://grafana.wize.ranii.pro/d-solo/SUaxNOwMk/portal-graphs-20212230?orgId=1&refresh=5m&panelId=2"
+    src_hum = "https://grafana.wize.ranii.pro/d-solo/SUaxNOwMk/portal-graphs-20212230?orgId=1&refresh=5m&panelId=4"
+    src_air = "https://grafana.wize.ranii.pro/d-solo/SUaxNOwMk/portal-graphs-20212230?orgId=1&refresh=5m&panelId=6"
+    src_press = "https://grafana.wize.ranii.pro/d-solo/SUaxNOwMk/portal-graphs-20212230?orgId=1&refresh=5m&panelId=9"
+    src_loud = "https://grafana.wize.ranii.pro/d-solo/SUaxNOwMk/portal-graphs-20212230?orgId=1&refresh=5m&panelId=10"
+
+    return render_template('dashboard/home.html', user=current_user, src_temp=src_temp,
+                                                                     src_hum=src_hum,
+                                                                     src_air=src_air,
+                                                                     src_press=src_press,
+                                                                     src_loud=src_loud)
 
 #
 # Mis estaciones
