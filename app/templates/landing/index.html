@@ -78,7 +78,7 @@
                                 <i class="fa fa-bars"></i>
                             </button>
 
-                            <a class="navbar-brand" href="#brand">
+                            <a class="navbar-brand" href="">
                                 <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1_white.png') }}" style="object-fit: cover; height: 60px; margin-left: 10%; margin-top: -7%;"
                                     class="logo logo-display" alt="">
                                 <img src="{{ url_for('static', filename='landing/img/logo_wizether_v1.png') }}" style="object-fit: cover; height: 60px; margin-left: 10%; margin-top: -7%;" 
@@ -203,7 +203,7 @@
                                         <i class="fa fa-magic"></i>
                                     </div>
                                     <div class="f_item_text">
-                                        <h3 class="text-center">Business Inteligence</h3>
+                                        <h3 class="text-center">Business Intelligence</h3>
                                         <p class="text-justify">Al poder almacenar los datos recolectados, facilitamos el análisis de los mismos de manera inteligente en el portal de <i>WizeTher</i>.</p>
                                     </div>
                                 </div>
@@ -294,7 +294,7 @@
                                     </p>
 
                                     <p>
-                                        <h5>Después, si se quieren visualizar los datos que toma la estación, se recomienda crear cuenta en WizeTher.</h5>
+                                        <h5>Después, si se quieren visualizar los datos que toma la estación, se recomienda crear cuenta en <i>WizeTher</i>.</h5>
                                     </p>
 
                                     <p>
@@ -327,9 +327,10 @@
                             <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="head_title text-center">
                                     <h2>Open API</h2>
-                                    <!-- <h5>Features: </h5> -->
                                     <p>
-                                        <h5>Lo primero que necesitaremos hacer será adquirir una estación, y una pila si deseamos lanzarla hacia la autonomía desde el principio. </h5>
+                                        <h5>Dentro del portal <i>WizeTher</i>, se encuentra alojada una funcionalidad extra, de descarga de los datos recogidos por los
+                                        sensores de las estaciones meteorológicas dadas de alta en el sistema; esto se consigue mediante consultas a la API, la
+                                        cual al ser abierta al público la llamamos <i>Open API</i></h5>
                                     </p>
                                 </div>
                             </div>
@@ -338,28 +339,28 @@
                                 
                                 <div class="row">
                                         <div class="col-md-8">
-                                            <img src="{{ url_for('static', filename='landing/img/api.jpg') }}" class="img-responsive center-block img-rounded" alt="" />
+                                            <img src="{{ url_for('static', filename='landing/img/api.png') }}" class="img-responsive center-block img-rounded" alt="" />
                                         </div>
         
                                         <div class="col-md-4" style="margin-top: 1.5%;">
                                             <div class="row">
                                                 <div class="f_item_icon text-center" style="font-size: 4rem; color:#648cff;">
                                                     <i class="fa fa-archive"></i> 
-                                                    <h5>Salida directa a CSV</h5>
+                                                    <h5>Descarga de datos en CSV</h5>
                                                 </div> 
                                             </div>
 
                                             <div class="row">
                                                 <div class="f_item_icon text-center" style="font-size: 4rem; color:#648cff;">
-                                                    <i class="fa fa-archive"></i> 
-                                                    <h5>Salida directa a CSV</h5>
+                                                    <i class="fa fa-calendar"></i> 
+                                                    <h5>Rango de fechas</h5>
                                                 </div> 
                                             </div>
 
                                             <div class="row">
                                                 <div class="f_item_icon text-center" style="font-size: 4rem; color:#648cff;">
-                                                    <i class="fa fa-archive"></i> 
-                                                    <h5>Salida directa a CSV</h5>
+                                                    <i class="fa fa-group"></i> 
+                                                    <h5>Intuitiva y customizable</h5>
                                                 </div> 
                                             </div>
                                         </div>
@@ -384,29 +385,22 @@
                                 <!-- Question 1 -->
                                 <div class="download_item roomy-100">
                                     <h2 class="text-white">FAQ</h2>
-                                    <h4 class="text-white">¿Qué es la tecnología Wize?</h4>
+                                    <h3 class="text-white">¿Qué es la tecnología Wize?</h4>
                                     <h5 class="text-white m-top-20">Se trata de un protocolo radio que trabaja a una frecuencia de 169 MHz (muy baja frecuencia,
                                         ¡tu WiFi va a 2.4 o 5 GHz!). Lleva siendo usado por compañías de agua y gas desde hace mas de 10 años para realizar mediciones inteligentes.
                                         Uno de sus puntos fuertes es la capacidad de penetración en interiores de las ondas de radio, lo que hace a este protocolo perfecto para aplicaciones
                                         IoT en zonas urbanas. Más info aquí: <a href="https://www.allwize.io/wize-protocol" style="color: white;"> <i>Protocolo Wize</i></a></h5>
 
-                                    <h4 class="text-white" style="padding-top: 5%;">¿Cómo obtenemos datos?</h4>
+                                    <h3 class="text-white" style="padding-top: 5%;">¿Cómo obtenemos datos?</h4>
                                     <h5 class="text-white m-top-20">En esta tarea tienen mucho que decir los sensores, que son los que la desempeñan. Son pequeños dispositivos electrónicos
                                         diseñados para ser sensibles a determinadas condiciones, y así poder medir variaciones de una determinada magnitud, como la temperatura.
                                         Segun el objetivo que se busque conseguir, la selección de sensores variara en ese sentido;
                                         así pues, los sensores seleccionados medirán aquello para lo que hayan sido diseñados,
                                         y nosotros a través de una placa controladora leeremos las medidas y programaremos que envíen esa información a internet, para que nuestra plataforma ayude a analizarlos.</h5>
 
-                                    <h4 class="text-white" style="padding-top: 5%;">¿Todos los datos son públicos?</h4>
+                                    <h3 class="text-white" style="padding-top: 5%;">¿Todos los datos son públicos?</h4>
                                     <h5 class="text-white m-top-20">Los datos que sean de carácter sensible jamás serán públicos. De todas maneras, este proyecto no tiene como objetivo la recopilación de información
                                         de personas o empresas, sino datos medioambientales, para servir de apoyo en decisiones que tengan como meta la mejora de la calidad ambiental de la ciudad.</h5>
-
-                                    <div class="download_app m-top-30">
-                                        <!-- 
-                                        <a href=""><img src="static/img/appstor.png" alt="" /></a>
-                                        <a href=""><img src="static/img/googleplay.png" alt="" /></a>
-                                        -->
-                                    </div>
                                 </div>
 
                             </div>
@@ -479,13 +473,7 @@
                                 <p class="wow fadeInRight" data-wow-duration="1s">
                                     Made with 
                                     <i class="fa fa-heart"></i>
-                                    by Lucía & Enrique  
-                                    <!-- 
-                                    by 
-                                    <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a> 
-                                    2016. All Rights Reserved
-                                    -->
-                                    
+                                    by Lucía & Enrique
                                 </p>
                             </div>
                         </div>
@@ -509,14 +497,14 @@
                     // https://leafletjs.com/examples/quick-start/
                     var mymap = L.map('mapid').setView([37.60158481756329, -0.9787592368057084], 15);
 
-                    //L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    //    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    //    maxZoom: 18,
-                    //    id: 'mapbox/streets-v11',
-                    //    tileSize: 512,
-                    //    zoomOffset: -1,
-                    //    accessToken: 'pk.eyJ1IjoicmFuaWl0YSIsImEiOiJja21ieDJxazEyNXZjMnFtdHZiajI5aHBkIn0.Dpro9CbpXhdVlfpTtBOYEA'
-                    //}).addTo(mymap);
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox/streets-v11',
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        accessToken: 'pk.eyJ1IjoicmFuaWl0YSIsImEiOiJja21ieDJxazEyNXZjMnFtdHZiajI5aHBkIn0.Dpro9CbpXhdVlfpTtBOYEA'
+                    }).addTo(mymap);
 
 
                     var marker1 = L.marker([37.60255830761039, -0.9808489618245347], {icon: orangeIcon}).addTo(mymap);
@@ -529,9 +517,9 @@
                         radius: 500
                     }).addTo(mymap);
 
-                    marker1.bindPopup("<b>Hello world!</b><br>I am a popup.")
-                    marker2.bindPopup("<b> Estación base 1</b> <br> RSSI: nose")
-                    circle.bindPopup("Alcance gateway Wize");
+                    marker1.bindPopup("<b>Estación '20212230'</b> <br> Estado: Durmiendo <br> Actividad: reciente")
+                    marker2.bindPopup("<b>Gateway 1</b> <br> Estado: Activo <br> Potencia: 21dBm ")
+                    circle.bindPopup("Alcance Gateway 1");
         </script>
 
         <!-- JS includes -->
