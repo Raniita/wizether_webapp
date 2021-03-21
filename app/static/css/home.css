@@ -5,3 +5,11 @@
     overflow: hidden;
     border-radius: 10px;
 }
+
+.graph-text {
+    width: 100%;
+    height: 80px;
+    border: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
